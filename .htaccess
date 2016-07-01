@@ -1,5 +1,12 @@
-RewriteEngine On 
+RewriteEngine On
 
 #Redirect all requests to HTTPS
 RewriteCond %{HTTPS} !OFF
 RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [L,R=301]
+
+<IfModule mod_headers.c>
+
+  # Add Strict-Transport-Security when HTTPS
+  Header set Strict-Transport-Security "max-age=10886400; includeSubDomains" env=HTTPS
+  
+</IfModule>
