@@ -3,6 +3,7 @@ Best practice HTTP headers for Apache and IIS. These headers enforce HTTPS acros
 
 * Redirect all requests to HTTPS
 * Add Strict-Transport-Security when HTTPS
+* Disable directory browsing
 
 ## Redirect all requests to HTTPS
 
