@@ -32,8 +32,11 @@ This header protects against clickjacking, blocking other sites from placing you
 ## X-XSS-Protection
 This header protects against cross-site scripting.
 
-## Further reading
+## Defend against cross-site tracing (XST)
+Cross-site tracing can enable retrieval of secure cookies.
 
+## Further reading
 * [Secure your site with HTTPS, Google Search Console Help] (https://support.google.com/webmasters/answer/6073543)
 * [SSL/TLS Deployment Best Practices, Qualys SSL Labs] (https://www.ssllabs.com/downloads/SSL_TLS_Deployment_Best_Practices.pdf)
 * [HTTP Strict Transport Security, OWASP] (https://www.owasp.org/index.php/HTTP_Strict_Transport_Security)
+* [Cross-Site Tracing (XST)] (http://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf)

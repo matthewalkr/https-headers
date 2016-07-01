@@ -1,8 +1,12 @@
 RewriteEngine On
 
-#Redirect all requests to HTTPS
+# Redirect all requests to HTTPS
 RewriteCond %{HTTPS} !OFF
 RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [L,R=301]
+
+# Defend against cross-site tracing (XST)
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
 
 <IfModule mod_headers.c>
 
@@ -11,7 +15,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [L,R=301]
   Header always append X-Frame-Options SAMEORIGIN
   Header set X-XSS-Protection "1; mode=block"
   Header set X-Content-Type-Options nosniff
-  
+
 </IfModule>
 
 # Disable directory listing
