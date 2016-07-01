@@ -3,6 +3,9 @@ Best practice HTTP headers for Apache and IIS. These headers enforce HTTPS acros
 
 * Redirect all requests to HTTPS
 * Add Strict-Transport-Security when HTTPS
+* X-Content-Type-Options
+* X-Frame-Options
+* X-XSS-Protection
 * Disable directory browsing
 
 ## Redirect all requests to HTTPS
@@ -19,6 +22,15 @@ This header defines a commitment to HTTPS for a specified period of time, meanin
 Options include:
 * includeSubDomains - applies to all present and future subdomains.
 * preload - consents to having domain preloaded by browsers https://hstspreload.appspot.com/ . Note that this is effectively a permanent commitment to retain HTTPS. The minimum max-age for this option is 10886400.
+
+## X-Content-Type-Options
+This header blocks enforces correct MIME types.
+
+## X-Frame-Options
+This header protects against clickjacking, blocking other sites from placing your site in an iframe.
+
+## X-XSS-Protection
+This header protects against cross-site scripting.
 
 ## Further reading
 
