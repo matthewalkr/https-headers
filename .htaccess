@@ -16,7 +16,6 @@ RewriteRule .* - [F]
   Header set X-XSS-Protection "1; mode=block"
   Header set X-Content-Type-Options nosniff
   Header always edit Set-Cookie (.*) "$1; HTTPOnly; Secure"
-  Header set Connection keep-alive
 
 </IfModule>
 
