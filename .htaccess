@@ -17,6 +17,8 @@ RewriteRule .* - [F]
   Header set X-Content-Type-Options nosniff
   Header always edit Set-Cookie (.*) "$1; HTTPOnly; Secure"
 
+  # Remove unnecessary headers
+  Header unset X-Powered-By
 </IfModule>
 
 # Disable directory listing
