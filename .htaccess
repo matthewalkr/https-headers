@@ -27,3 +27,9 @@ RewriteRule .* - [F]
 
 # Disable directory listing
 Options -Indexes
+
+# Deny access to *.md files and any file starting with "." e.g. .gitignore .
+<Files ~ "(^\.|\.md$)">
+	Order allow,deny
+	Deny from all
+</Files>
