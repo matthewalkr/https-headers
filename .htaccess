@@ -1,8 +1,12 @@
 RewriteEngine On
 
+# Redirect to your canonical domain if you have one
+# RewriteCond %{HTTP_HOST} !^yourdevelopmentdomain\.com$ [NC]
+# RewriteRule . https://yourcanonicaldomain.com%{REQUEST_URI} [L,R=301]
+
 # Redirect all requests to HTTPS
-RewriteCond %{HTTPS} !on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Defend against cross-site tracing (XST)
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
