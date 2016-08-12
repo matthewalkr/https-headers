@@ -10,12 +10,14 @@ RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Defend against cross-site tracing (XST)
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
-RewriteRule .* - [F]
+RewriteRule . - [F]
 
 <IfModule mod_headers.c>
 
-  # Add Strict-Transport-Security when HTTPS
-  Header set Strict-Transport-Security "max-age=10886400; includeSubDomains" env=HTTPS
+  # Add Strict-Transport-Security when HTTPS -- uncommenting this is a committing step
+  # Header set Strict-Transport-Security "max-age=10886400; includeSubDomains" env=HTTPS
+
+  # General security headers
   Header always append X-Frame-Options SAMEORIGIN
   Header set X-XSS-Protection "1; mode=block"
   Header set X-Content-Type-Options nosniff
@@ -23,6 +25,7 @@ RewriteRule .* - [F]
 
   # Remove unnecessary headers
   Header unset X-Powered-By
+
 </IfModule>
 
 # Disable directory listing
